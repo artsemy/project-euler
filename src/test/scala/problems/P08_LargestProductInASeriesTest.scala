@@ -1,9 +1,9 @@
-package exercises
+package problems
 
-import exercises.LargestProductInASeries.largest
+import problems.P08_LargestProductInASeries.largest
 import munit.FunSuite
 
-class LargestProductInASeriesTest extends FunSuite:
+class P08_LargestProductInASeriesTest extends FunSuite:
 
   val str = "73167176531330624919225119674426574742355349194934" +
     "96983520312774506326239578318016984801869478851843" +

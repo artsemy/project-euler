@@ -1,9 +1,9 @@
-package exercises
+package problems
 
-import exercises.LargestPalindromeProduct.largest
+import problems.P04_LargestPalindromeProduct.largest
 import munit.FunSuite
 
-class LargestPalindromeProductTest extends FunSuite:
+class P04_LargestPalindromeProductTest extends FunSuite:
 
   test("largest palindrome of product 2-digit numbers") {
     val p = largest(2)

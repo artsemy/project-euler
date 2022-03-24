@@ -1,9 +1,9 @@
-package exercises
+package problems
 
-import exercises.SpecialPythagoreanTriplet.product
+import problems.P09_SpecialPythagoreanTriplet.product
 import munit.FunSuite
 
-class SpecialPythagoreanTripletTest extends FunSuite:
+class P09_SpecialPythagoreanTripletTest extends FunSuite:
 
   test("triplet of sum 12") {
     val act = product(12)

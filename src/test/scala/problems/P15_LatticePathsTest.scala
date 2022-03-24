@@ -1,9 +1,9 @@
-package exercises
+package problems
 
 import munit.FunSuite
-import exercises.LatticePaths._
+import problems.P15_LatticePaths._
 
-class LatticePathsTest extends FunSuite:
+class P15_LatticePathsTest extends FunSuite:
 
   test("lattice path 2 * 2 grid") {
     val act = path(2)

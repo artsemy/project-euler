@@ -1,9 +1,9 @@
-package exercises
+package problems
 
-import exercises.MultiplesOf3Or5.countSum
+import problems.P01_MultiplesOf3Or5.countSum
 import munit.FunSuite
 
-class MultiplesOf3Or5Test extends FunSuite:
+class P01_MultiplesOf3Or5Test extends FunSuite:
 
   test("sum of the multiples of 3 or 5 below 10") {
     val s10 = countSum(10)

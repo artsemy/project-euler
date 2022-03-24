@@ -1,9 +1,9 @@
-package exercises
+package problems
 
-import SummationOfPrimes._
+import P10_SummationOfPrimes._
 import munit.FunSuite
 
-class SummationOfPrimesTest extends FunSuite:
+class P10_SummationOfPrimesTest extends FunSuite:
 
   test("sum of primes lower than 10") {
     val s = sum(10)

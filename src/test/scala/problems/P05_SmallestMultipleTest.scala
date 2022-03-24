@@ -1,9 +1,9 @@
-package exercises
+package problems
 
-import exercises.SmallestMultiple.findMultiple
+import problems.P05_SmallestMultiple.findMultiple
 import munit.FunSuite
 
-class SmallestMultipleTest extends FunSuite:
+class P05_SmallestMultipleTest extends FunSuite:
 
   test("minimal multiple 1 to 10 numbers") {
     val mult = findMultiple(10)

@@ -1,9 +1,9 @@
-package exercises
+package problems
 
-import exercises.LargestPrimeFactor.largestPrime
+import problems.P03_LargestPrimeFactor.largestPrime
 import munit.FunSuite
 
-class LargestPrimeFactorTest extends FunSuite:
+class P03_LargestPrimeFactorTest extends FunSuite:
 
   test("largest prime factor 13195") {
     val p = largestPrime(13195)

@@ -1,9 +1,9 @@
-package exercises
+package problems
 
-import exercises.NthPrime.findPrime
+import problems.P07_NthPrime.findPrime
 import munit.FunSuite
 
-class NthPrimeTest extends FunSuite:
+class P07_NthPrimeTest extends FunSuite:
 
   test("find 6th prime") {
     val pr = findPrime(6)
