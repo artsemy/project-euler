@@ -15,7 +15,11 @@ object P04_LargestPalindromeProduct:
 
   def largest(digitNumber: Int): Int =
 
-    val min = 10 * (digitNumber - 1)
+    val min =
+      if digitNumber == 1 then
+        1
+      else
+        10 * (digitNumber - 1)
     val max = Math.pow(10, digitNumber).toInt - 1
 
     def isPalindrome(n: Int): Boolean =
@@ -23,7 +27,7 @@ object P04_LargestPalindromeProduct:
       str == str.reverse
 
     def isNDigitProduct(n: Int): Boolean =
-      (min to max).exists(x => n % x == 0 && n / x >= min && n /x <= max)
+      (min to max).exists(x => n % x == 0 && n / x >= min && n / x <= max)
 
     @tailrec
     def loop(n: Int): Int =
