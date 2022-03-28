@@ -18,31 +18,26 @@ object P03_LargestPrimeFactor:
     def isPrime(n: Long, div: Long = 2L): Boolean =
       n == 1 || div == n || n % div != 0 && isPrime(n, div + 1L)
 
-    def maxDiv(x: Long, y: Long): Long =
-      if x > y then
-        x
-      else
-        y
-
     @tailrec
-    def firstDiv(div: Long, number: Long): Long =
+    def findDiv(div: Long, number: Long): Long =
       if number % div == 0 then
         div
       else
-        firstDiv(div + 1, number)
+        findDiv(div + 1, number)
 
-    def findDiv(n: Long, curr: Long): Long =
-      val div = firstDiv(2L, n)
+    def findMaxDiv(n: Long, curr: Long): Long =
+      val div = findDiv(2L, n)
       if isPrime(div) then
-        maxDiv(div, curr)
-      else curr
+        div max curr
+      else
+        curr
 
     @tailrec
     def loop(n: Long, res: Long): Long =
-      if res > n then
+      if res >= n then
         res
       else
-        val div = findDiv(n, res)
+        val div = findMaxDiv(n, res)
         loop(n / div, div)
 
     loop(n, 1)

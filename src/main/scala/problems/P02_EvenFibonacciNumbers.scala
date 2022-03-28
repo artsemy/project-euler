@@ -16,19 +16,27 @@ import scala.annotation.tailrec
 
 object P02_EvenFibonacciNumbers:
 
-  def countSum(upperBorder: Int): Int =
-
-    def check(i: Int): Int =
-      if i % 2 == 0 then
-        i
-      else
-        0
+  def countSumV1(upperBorder: Int): Int =
 
     @tailrec
-    def fib(f1: Int, f2: Int, acc: Int): Int =
-      if f2 > upperBorder then
-        acc
+    def fib(f1: Int, f2: Int, acc: List[Int]): List[Int] =
+      if f2 >= upperBorder then
+        acc.reverse
       else
-        fib(f2, f1 + f2, acc + check(f2))
+        fib(f2, f1 + f2, f2 :: acc)
 
-    fib(1, 2, 0)
+    def isEven(n: Int): Boolean = n % 2 == 0
+
+    fib(0, 1, Nil).filter(isEven)
+      .sum
+
+  def countSumV2(upperBorder: Int): Int =
+
+    @tailrec
+    def fib(f1: Int, f2: Int, acc: List[Int]): List[Int] =
+      if f1 + f2 >= upperBorder then
+        acc.reverse
+      else
+        fib(f1 + 2 * f2, 2 * f1 + 3 * f2, (f1 + f2) :: acc)
+
+    fib(1, 1, Nil).sum
