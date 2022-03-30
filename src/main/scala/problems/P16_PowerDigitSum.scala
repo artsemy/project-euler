@@ -39,5 +39,3 @@ object P16_PowerDigitSum:
       1
     else
       loop(digitsList, deg)
-
-  @main def run2() = println(pDigitSum(2, 1000))
