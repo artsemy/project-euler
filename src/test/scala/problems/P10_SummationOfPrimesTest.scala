@@ -5,12 +5,18 @@ import munit.FunSuite
 
 class P10_SummationOfPrimesTest extends FunSuite:
 
-  test("sum of primes lower than 10") {
-    val s = sum(10)
-    assertEquals(s, 17L)
+  test("primes lower than 10") {
+    assertEquals(primes(10), List(2, 3, 5, 7))
   }
 
-  test("sum of primes lower than 2000000") { // 1 min +-
-    val s = sum(2000000)
-    assertEquals(s, 142913828922L)
+  test("sum of primes lower than 4") {
+    assertEquals(sum(4), 5L)
+  }
+
+  test("sum of primes lower than 10") {
+    assertEquals(sum(10), 17L)
+  }
+
+  test("sum of primes lower than 2000000") {
+    assertEquals(sum(2000000), 142913828922L)
   }
