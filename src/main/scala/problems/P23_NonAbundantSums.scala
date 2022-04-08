@@ -35,9 +35,9 @@ object P23_NonAbundantSums:
         res
       else
         val h = init.head
-        loop(init.tail, res ++ init.map(_ + h))
+        loop(init.tail, res ++ init.takeWhile(_ + h <= upperBorder).map(_ + h))
 
-    loop(abundant, Set()).filter(_ <= upperBorder)
+    loop(abundant, Set())
 
   def nonAbundantSum(upperBorder: Int): Int =
     val s = twoAbundantSumNumbers(upperBorder)
