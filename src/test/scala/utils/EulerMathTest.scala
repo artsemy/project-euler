@@ -57,3 +57,15 @@ class EulerMathTest extends FunSuite :
   test("compare get all dividers") {
     assertEquals(getAllDividers(2162160).length, 320)
   }
+
+  test("isPerfectNumber 28") {
+    assertEquals(isPerfectNumber(28), true)
+  }
+
+  test("isDeficientNumber 13") {
+    assertEquals(isDeficientNumber(13), true)
+  }
+
+  test("isAbundantNumber 12") {
+    assertEquals(isAbundantNumber(12), true)
+  }

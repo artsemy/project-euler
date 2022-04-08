@@ -54,3 +54,15 @@ object EulerMath:
       val primeDividers = getPrimeDividersSeq(n)
       val indexComb = getAllCombinations(primeDividers.indices)
       indexComb.map(seq => seq.map(i => primeDividers(i)).product).distinct.sorted
+
+  def compareNumberAndDividersSum(x: Int, f: (Int, Int) => Boolean): Boolean =
+    f(x, getAllDividers(x).init.sum)
+  
+  def isPerfectNumber(n: Int): Boolean =
+    compareNumberAndDividersSum(n, (x, y) => x == y)
+
+  def isDeficientNumber(n: Int): Boolean =
+    compareNumberAndDividersSum(n, (x, y) => x > y)
+
+  def isAbundantNumber(n: Int): Boolean =
+    compareNumberAndDividersSum(n, (x, y) => x < y)
