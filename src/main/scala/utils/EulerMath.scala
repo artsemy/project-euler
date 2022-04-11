@@ -37,7 +37,6 @@ object EulerMath:
 
   //need sorting sorted
   def getAllCombinations(seq: Seq[Int]): Seq[Seq[Int]] =
-
     def loop(initSeq: Seq[Int], acc: Seq[Int]): Seq[Seq[Int]] =
       if initSeq.isEmpty then
         Seq(acc)
@@ -45,6 +44,7 @@ object EulerMath:
         loop(initSeq.init, acc) :++ loop(initSeq.init, initSeq.last +: acc)
 
     loop(seq, Seq())
+
 
   //need remove sorting
   def getAllDividers(n: Int): Seq[Int] =
