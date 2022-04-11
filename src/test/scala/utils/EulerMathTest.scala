@@ -69,3 +69,11 @@ class EulerMathTest extends FunSuite :
   test("isAbundantNumber 12") {
     assertEquals(isAbundantNumber(12), true)
   }
+
+  test("fact 3") {
+    assertEquals(fact(3), 6)
+  }
+
+  test("fact 10") {
+    assertEquals(fact(10), 3628800)
+  }

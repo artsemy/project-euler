@@ -57,7 +57,7 @@ object EulerMath:
 
   def compareNumberAndDividersSum(x: Int, f: (Int, Int) => Boolean): Boolean =
     f(x, getAllDividers(x).init.sum)
-  
+
   def isPerfectNumber(n: Int): Boolean =
     compareNumberAndDividersSum(n, (x, y) => x == y)
 
@@ -66,3 +66,13 @@ object EulerMath:
 
   def isAbundantNumber(n: Int): Boolean =
     compareNumberAndDividersSum(n, (x, y) => x < y)
+    
+  def fact(n: Int): Int =
+
+    @tailrec
+    def loop(k: Int, res: Int): Int =
+      if k == 1 then
+        res
+      else loop(k-1, res * k)
+      
+    loop(n, 1)
