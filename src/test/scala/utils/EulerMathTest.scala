@@ -77,3 +77,7 @@ class EulerMathTest extends FunSuite :
   test("fact 10") {
     assertEquals(fact(10), 3628800)
   }
+
+  test("fibFrom 5 elems") {
+    assertEquals(fibFrom(0, 1).take(5), LazyList[BigDecimal](0, 1, 1, 2, 3))
+  }

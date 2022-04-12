@@ -76,3 +76,5 @@ object EulerMath:
       else loop(k-1, res * k)
       
     loop(n, 1)
+
+  def fibFrom(f1: BigDecimal, f2: BigDecimal): LazyList[BigDecimal] = f1 #:: fibFrom(f2, f1 + f2)
