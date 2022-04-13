@@ -1,6 +1,5 @@
 package problems
 
-import problems.P01_MultiplesOf3Or5._
 import munit.FunSuite
 
 class P01_MultiplesOf3Or5Test extends FunSuite :

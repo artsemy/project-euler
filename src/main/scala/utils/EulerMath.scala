@@ -3,6 +3,11 @@ package utils
 import scala.annotation.tailrec
 
 object EulerMath:
+  
+  def isPalindrome(n: Int): Boolean =
+    n.toString.reverse == n.toString
+
+  def isEven(n: Int): Boolean = n % 2 == 0
 
   def getPrimes(upperBorder: Int, lowerBorder: Int = 2): Seq[Int] =
 
@@ -19,10 +24,10 @@ object EulerMath:
     else
       loop(Seq(), lowerBorder to upperBorder)
 
-  def getPrimeDividersSeq(n: Int): Seq[Int] =
+  def getPrimeDividersSeq(n: Long): Seq[Long] =
 
     @tailrec
-    def loop(n: Int, div: Int, acc: Seq[Int]): Seq[Int] =
+    def loop(n: Long, div: Long, acc: Seq[Long]): Seq[Long] =
       if div == n then
         acc :+ div
       else if n % div == 0 then
@@ -51,7 +56,7 @@ object EulerMath:
     if n == 0 then
       Seq()
     else
-      val primeDividers = getPrimeDividersSeq(n)
+      val primeDividers = getPrimeDividersSeq(n).map(_.toInt) //fix type
       val indexComb = getAllCombinations(primeDividers.indices)
       indexComb.map(seq => seq.map(i => primeDividers(i)).product).distinct.sorted
 
@@ -77,4 +82,4 @@ object EulerMath:
       
     loop(n, 1)
 
-  def fibFrom(f1: BigDecimal, f2: BigDecimal): LazyList[BigDecimal] = f1 #:: fibFrom(f2, f1 + f2)
+  def fibFrom(f1: BigDecimal = 0, f2: BigDecimal = 1): LazyList[BigDecimal] = f1 #:: fibFrom(f2, f1 + f2)

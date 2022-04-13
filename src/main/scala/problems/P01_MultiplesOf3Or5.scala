@@ -9,21 +9,18 @@ package problems
   https://projecteuler.net/problem=1
 */
 
-object P01_MultiplesOf3Or5:
+def countSumV1(upperBorder: Int, divider1: Int, divider2: Int): Int =
 
-  def countSumV1(upperBorder: Int, divider1: Int, divider2: Int): Int =
+  def multiplesSum(divider: Int): Int =
+    val n = multiplesAmount(divider)
+    rangeSum(n) * divider
 
-    def multiplesNumber(divider: Int): Int = (upperBorder - 1) / divider
+  def multiplesAmount(divider: Int): Int = (upperBorder - 1) / divider
 
-    def countRangeSum(upperValue: Int): Int = (1 to upperValue).sum
+  def rangeSum(upperValue: Int): Int = (1 to upperValue).sum
 
-    def countMultipleSum(divider: Int): Int =
-      val n = multiplesNumber(divider)
-      countRangeSum(n) * divider
+  multiplesSum(divider1) + multiplesSum(divider2) - multiplesSum(divider1 * divider2)
 
-    countMultipleSum(divider1) + countMultipleSum(divider2) - countMultipleSum(divider1 * divider2)
-
-  def countSumV2(upperBorder: Int, divider1: Int, divider2: Int): Int =
-    (1 until upperBorder).filter(x => x % divider1 == 0 || x % divider2 == 0)
-      .sum
-    
+def countSumV2(upperBorder: Int, divider1: Int, divider2: Int): Int =
+  (1 until upperBorder).filter(x => x % divider1 == 0 || x % divider2 == 0)
+    .sum

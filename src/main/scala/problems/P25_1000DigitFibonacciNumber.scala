@@ -38,4 +38,4 @@ object P25_1000DigitFibonacciNumber:
       else
         loop(list.tail, index + 1)
 
-    loop(fibFrom(0, 1), 0)
+    loop(fibFrom(), 0)

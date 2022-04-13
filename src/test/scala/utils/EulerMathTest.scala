@@ -5,6 +5,26 @@ import utils.EulerMath._
 
 class EulerMathTest extends FunSuite :
 
+  test("isPalindrome 123321") {
+    assertEquals(isPalindrome(123321), true)
+  }
+
+  test("isPalindrome 12321") {
+    assertEquals(isPalindrome(12321), true)
+  }
+
+  test("isPalindrome 1321") {
+    assertEquals(isPalindrome(1321), false)
+  }
+
+  test("isEven 4") {
+    assertEquals(isEven(4), true)
+  }
+
+  test("isEven 3") {
+    assertEquals(isEven(3), false)
+  }
+
   test("get primes not bigger than 1") {
     assertEquals(getPrimes(1), Seq())
   }
@@ -22,11 +42,11 @@ class EulerMathTest extends FunSuite :
   }
 
   test("get prime dividers seq 2") {
-    assertEquals(getPrimeDividersSeq(2), Seq(2))
+    assertEquals(getPrimeDividersSeq(2), Seq(2L))
   }
 
   test("get prime dividers seq 24") {
-    assertEquals(getPrimeDividersSeq(24), Seq(2, 2, 2, 3))
+    assertEquals(getPrimeDividersSeq(24), Seq(2L, 2L, 2L, 3L))
   }
 
   test("all combinations (1, 2, 3)") {
@@ -79,5 +99,5 @@ class EulerMathTest extends FunSuite :
   }
 
   test("fibFrom 5 elems") {
-    assertEquals(fibFrom(0, 1).take(5), LazyList[BigDecimal](0, 1, 1, 2, 3))
+    assertEquals(fibFrom().take(5), LazyList[BigDecimal](0, 1, 1, 2, 3))
   }

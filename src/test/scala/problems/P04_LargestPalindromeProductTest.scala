@@ -1,6 +1,5 @@
 package problems
 
-import problems.P04_LargestPalindromeProduct.largest
 import munit.FunSuite
 
 class P04_LargestPalindromeProductTest extends FunSuite:
@@ -15,4 +14,28 @@ class P04_LargestPalindromeProductTest extends FunSuite:
 
   test("largest palindrome of product 3-digit numbers") {
     assertEquals(largest(3), 906609)
+  }
+
+  test("largest palindrome of product 1-digit numbers v2") {
+    assertEquals(largestV2(1), 9)
+  }
+
+  test("largest palindrome of product 2-digit numbers v2") {
+    assertEquals(largestV2(2), 9009)
+  }
+
+  test("largest palindrome of product 3-digit numbers v2") {
+    assertEquals(largestV2(3), 906609)
+  }
+
+  test("largest palindrome of product 1-digit numbers v3") {
+    assertEquals(largestV3(1), 9)
+  }
+
+  test("largest palindrome of product 2-digit numbers v3") {
+    assertEquals(largestV3(2), 9009)
+  }
+  
+  test("largest palindrome of product 3-digit numbers v3") {
+    assertEquals(largestV3(3), 906609)
   }

@@ -1,6 +1,5 @@
 package problems
 
-import problems.P02_EvenFibonacciNumbers._
 import munit.FunSuite
 
 class P02_EvenFibonacciNumbersTest extends FunSuite:
