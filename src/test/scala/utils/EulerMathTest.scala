@@ -5,6 +5,14 @@ import utils.EulerMath._
 
 class EulerMathTest extends FunSuite :
 
+  test("isPrime 7") {
+    assertEquals(isPrime(7), true)
+  }
+
+  test("isPrime 6") {
+    assertEquals(isPrime(6), false)
+  }
+
   test("isPalindrome 123321") {
     assertEquals(isPalindrome(123321), true)
   }

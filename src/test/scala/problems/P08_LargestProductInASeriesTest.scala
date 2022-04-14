@@ -1,11 +1,10 @@
 package problems
 
-import problems.P08_LargestProductInASeries.largest
 import munit.FunSuite
 
 class P08_LargestProductInASeriesTest extends FunSuite:
 
-  val str = "73167176531330624919225119674426574742355349194934" +
+  val str: String = "73167176531330624919225119674426574742355349194934" +
     "96983520312774506326239578318016984801869478851843" +
     "85861560789112949495459501737958331952853208805511" +
     "12540698747158523863050715693290963295227443043557" +
@@ -27,11 +26,9 @@ class P08_LargestProductInASeriesTest extends FunSuite:
     "71636269561882670428252483600823257530420752963450"
 
   test("4 adjacent digits product") {
-    val act = largest(str, 4)
-    assertEquals(act, 5832L)
+    assertEquals(largestProductInASeries(str, 4), 5832L)
   }
 
   test("13 adjacent digits product") {
-    val act = largest(str, 13)
-    assertEquals(act, 23514624000L)
+    assertEquals(largestProductInASeries(str, 13), 23514624000L)
   }

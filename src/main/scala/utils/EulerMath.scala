@@ -3,7 +3,10 @@ package utils
 import scala.annotation.tailrec
 
 object EulerMath:
-  
+
+  def isPrime(n: Int): Boolean =
+    (2 until n).forall(n % _ != 0)
+
   def isPalindrome(n: Int): Boolean =
     n.toString.reverse == n.toString
 

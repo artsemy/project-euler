@@ -9,7 +9,7 @@ package problems
   https://projecteuler.net/problem=1
 */
 
-def countSumV1(upperBorder: Int, divider1: Int, divider2: Int): Int =
+def multiplesSumV1(upperBorder: Int, divider1: Int, divider2: Int): Int =
 
   def multiplesSum(divider: Int): Int =
     val n = multiplesAmount(divider)
@@ -21,6 +21,6 @@ def countSumV1(upperBorder: Int, divider1: Int, divider2: Int): Int =
 
   multiplesSum(divider1) + multiplesSum(divider2) - multiplesSum(divider1 * divider2)
 
-def countSumV2(upperBorder: Int, divider1: Int, divider2: Int): Int =
+def multiplesSumV2(upperBorder: Int, divider1: Int, divider2: Int): Int =
   (1 until upperBorder).filter(x => x % divider1 == 0 || x % divider2 == 0)
     .sum

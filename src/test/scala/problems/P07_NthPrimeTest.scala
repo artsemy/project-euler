@@ -1,16 +1,21 @@
 package problems
 
-import problems.P07_NthPrime.findPrime
 import munit.FunSuite
 
 class P07_NthPrimeTest extends FunSuite:
 
+  test("for fun") {
+    import utils.EulerMath._
+    val index = 100 // change
+    val a = 1.25
+    val border = (index * Math.log(index) * a).ceil.toInt
+    assertEquals((6 to index).map(findPrime), getPrimes(border).slice(5, index).toIndexedSeq)
+  }
+
   test("find 6th prime") {
-    val pr = findPrime(6)
-    assertEquals(pr, 13)
+    assertEquals(findPrime(6), 13)
   }
 
   test("find 10001th prime") {
-    val pr = findPrime(10001)
-    assertEquals(pr, 104743)
+    assertEquals(findPrime(10001), 104743)
   }
