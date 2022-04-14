@@ -55,16 +55,16 @@ object EulerMath:
 
 
   //need remove sorting
-  def getAllDividers(n: Int): Seq[Int] =
+  def getAllDividers(n: Long): Seq[Long] =
     if n == 0 then
       Seq()
     else
-      val primeDividers = getPrimeDividersSeq(n).map(_.toInt) //fix type
+      val primeDividers = getPrimeDividersSeq(n)
       val indexComb = getAllCombinations(primeDividers.indices)
       indexComb.map(seq => seq.map(i => primeDividers(i)).product).distinct.sorted
 
   def compareNumberAndDividersSum(x: Int, f: (Int, Int) => Boolean): Boolean =
-    f(x, getAllDividers(x).init.sum)
+    f(x, getAllDividers(x).init.sum.toInt) //type
 
   def isPerfectNumber(n: Int): Boolean =
     compareNumberAndDividersSum(n, (x, y) => x == y)

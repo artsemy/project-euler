@@ -17,9 +17,9 @@ import utils.EulerMath._
 object P21_AmicableNumbers:
 
   def isAmicableNumber(n: Int): Boolean =
-    val dividers: Seq[Int] = getAllDividers(n)
+    val dividers: Seq[Int] = getAllDividers(n).map(_.toInt) //type
     val pairNumber = dividers.init.sum
-    val pairNumberDividers: Seq[Int] = getAllDividers(pairNumber)
+    val pairNumberDividers: Seq[Int] = getAllDividers(pairNumber).map(_.toInt) //type
     dividers.sum == n + pairNumber && pairNumberDividers.sum == n + pairNumber && n != pairNumber
 
   def amicableNumbersSeq(upperBound: Int): Seq[Int] =

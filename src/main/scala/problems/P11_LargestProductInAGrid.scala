@@ -33,45 +33,27 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=11
 */
 
-object P11_LargestProductInAGrid:
+def largestProductInAGrid(matrix: List[List[Int]], nAmount: Int): Int =
+  val mWidth = matrix.length
 
-  def largestProduct(str: String, mWidth: Int, nAmount: Int): Int =
+  def count(matrix: List[List[Int]]): Int =
+    val listMax = for {
+      i <- (0 until (mWidth - nAmount)).toList
+      j <- (0 until (mWidth - nAmount)).toList
+      hori  = matrix(i)(j) * matrix(i)(j+1) * matrix(i)(j+2) * matrix(i)(j+3)
+      diag = matrix(i)(j) * matrix(i+1)(j+1) * matrix(i+2)(j+2) * matrix(i+3)(j+3)
+    } yield hori max diag
+    listMax.max
 
-    val numbers = str.split(" ").toList
+  @tailrec
+  def transpose(matrix: List[List[Int]], res: List[List[Int]]): List[List[Int]] =
+    if matrix.head.isEmpty then
+      res
+    else
+      val row = matrix.map(l => l.head)
+      val newMart = matrix.map(l => l.tail)
+      transpose(newMart, row :: res)
 
-    @tailrec
-    def createMatrix(numbers: List[String], n: Int, res: List[List[Int]]): List[List[Int]] =
-      if numbers.isEmpty then
-        res.reverse
-      else
-        val r = numbers.take(n).map(_.toInt) :: res
-        createMatrix(numbers.drop(n), n, r)
+  val trMatrix = transpose(matrix, Nil)
 
-    def findMax(x: Int, y: Int): Int =
-      if x > y then
-        x
-      else
-        y
-
-    def count(matrix: List[List[Int]]): Int =
-      val listMax = for {
-        i <- (0 until (mWidth - nAmount)).toList
-        j <- (0 until (mWidth - nAmount)).toList
-        hori  = matrix(i)(j) * matrix(i)(j+1) * matrix(i)(j+2) * matrix(i)(j+3)
-        diag = matrix(i)(j) * matrix(i+1)(j+1) * matrix(i+2)(j+2) * matrix(i+3)(j+3)
-      } yield findMax(hori, diag)
-      listMax.max
-
-    @tailrec
-    def transpose(matrix: List[List[Int]], res: List[List[Int]]): List[List[Int]] =
-      if matrix.head.isEmpty then
-        res
-      else
-        val row = matrix.map(l => l.head)
-        val newMart = matrix.map(l => l.tail)
-        transpose(newMart, row :: res)
-
-    val matrix = createMatrix(numbers, mWidth, Nil)
-    val trMatrix = transpose(matrix, Nil)
-
-    findMax(count(matrix), count(trMatrix))
+  count(matrix) max count(trMatrix)

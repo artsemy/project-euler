@@ -1,45 +1,8 @@
 package problems
 
 import munit.FunSuite
-import problems.P12_HighlyDivisibleTriangularNumber._
 
 class P12_HighlyDivisibleTriangularNumberTest extends FunSuite:
-
-  test("all dividers of 1") {
-    assertEquals(getAllDividers(1), Seq(1))
-  }
-
-  test("all dividers of 28") {
-    assertEquals(getAllDividers(28), Seq(1, 2, 4, 7, 14, 28))
-  }
-
-  test("is not triangular 27") {
-    assertEquals(isTriangular(27), false)
-  }
-
-  test("is triangular 1") {
-    assertEquals(isTriangular(1), true)
-  }
-
-  test("is triangular 28") {
-    assertEquals(isTriangular(1), true)
-  }
-
-  test("is triangular 5050") {
-    assertEquals(isTriangular(5050), true)
-  }
-
-  test("prime dividers 2") {
-    assertEquals(primeDividers(2), Map(2 -> 1))
-  }
-
-  test("prime dividers 28") {
-    assertEquals(primeDividers(28), Map(2 -> 2, 7 -> 1))
-  }
-
-  test("prime dividers 504") {
-    assertEquals(primeDividers(504), Map(2 -> 3, 3 -> 2, 7 -> 1))
-  }
 
   test("highly divisible triangular number 0") {
     assertEquals(highlyDivisibleTriangularNumber(0), 1L)

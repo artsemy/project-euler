@@ -67,19 +67,19 @@ class EulerMathTest extends FunSuite :
   }
 
   test("get all dividers 1") {
-    assertEquals(getAllDividers(1), Seq(1))
+    assertEquals(getAllDividers(1).map(_.toInt), Seq(1))
   }
 
   test("get all dividers 5") {
-    assertEquals(getAllDividers(5), Seq(1, 5))
+    assertEquals(getAllDividers(5).map(_.toInt), Seq(1, 5))
   }
 
   test("get all dividers 10") {
-    assertEquals(getAllDividers(10), Seq(1, 2, 5, 10))
+    assertEquals(getAllDividers(10).map(_.toInt), Seq(1, 2, 5, 10))
   }
 
   test("get all dividers 24") {
-    assertEquals(getAllDividers(24), Seq(1, 2, 3, 4, 6, 8, 12, 24))
+    assertEquals(getAllDividers(24).map(_.toInt), Seq(1, 2, 3, 4, 6, 8, 12, 24))
   }
 
   test("compare get all dividers") {

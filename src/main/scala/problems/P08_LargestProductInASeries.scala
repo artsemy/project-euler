@@ -32,17 +32,17 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=8
 */
 
-def largestProductInASeries(str: String, n: Int): Long =
+def largestProductInASeries(number: String, subLength: Int): Long =
 
   def product(str: String): Long =
     str.map(c => (c - 48).toLong).product
 
   @tailrec
   def loop(str: String, currentMax: Long): Long =
-    if str.length < n then
+    if str.length < subLength then
       currentMax
     else
-      val compareMax = product(str.take(n))
+      val compareMax = product(str.take(subLength))
       loop(str.tail, currentMax max compareMax)
 
-  loop(str, 0)
+  loop(number, 0)
