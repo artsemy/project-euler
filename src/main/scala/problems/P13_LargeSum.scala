@@ -9,18 +9,5 @@ import scala.annotation.tailrec
 */
 
 def longNumbersSumFirstDigits(numbers: List[String]): String =
-
-  val digitSumList =
-    numbers.map(n => n.map(d => d - 48).toList)
-      .reduce((l1, l2) => l1.zip(l2)
-      .map((x1, x2) => x1 + x2))
-
-  @tailrec
-  def loop(list: List[Int], add: Int, acc: List[Int]): List[Int] =
-    if list.isEmpty then
-      add :: acc
-    else
-      val head = list.head + add
-      loop(list.tail, head / 10, (head % 10) :: acc)
-
-  loop(digitSumList.reverse, 0, Nil).mkString.take(10)
+  numbers.map(BigInt(_)).sum.toString().take(10)
+  

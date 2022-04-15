@@ -12,4 +12,4 @@ import utils.EulerMath._
 */
 
 def sumOfPrimes(border: Int): Long =
-  getPrimes(border - 1).map(_.toLong).sum
+  getPrimes(border - 1).foldLeft(0L)(_ + _)

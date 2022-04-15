@@ -1,6 +1,6 @@
 package problems
 
-import scala.annotation.tailrec
+import utils.EulerMath._
 
 /*
   n! means n × (n − 1) × ... × 3 × 2 × 1
@@ -12,23 +12,4 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=20
 */
 
-def factorDigitSum(n: Int): Int =
-
-  @tailrec
-  def multiplyDigitSeq(i: Int, input: Seq[Int], add: Int = 0, acc: Seq[Int] = Seq()): Seq[Int] =
-    if input.length == 1 then
-      val head = (input.head * i + add).toString.map(_ - 48)
-      head ++ acc
-    else
-      val digitMulti = input.last * i + add
-      multiplyDigitSeq(i, input.init, digitMulti / 10, digitMulti % 10 +: acc)
-
-  @tailrec
-  def factDigitSeq(n: Int, i: Int = 1, acc: Seq[Int] = Seq(1)): Seq[Int] =
-    if i > n then
-      acc
-    else
-      val multiAcc = multiplyDigitSeq(i, acc)
-      factDigitSeq(n, i + 1, multiAcc)
-
-  factDigitSeq(n).sum
+def factorDigitSum(n: Int): Int = BigIntToDigitSeq(fact(n)).sum

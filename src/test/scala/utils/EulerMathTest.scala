@@ -98,6 +98,14 @@ class EulerMathTest extends FunSuite :
     assertEquals(isAbundantNumber(12), true)
   }
 
+  test("stringToDigitSeq 123456") {
+    assertEquals(stringToDigitSeq("123456"), Seq(1, 2, 3, 4, 5, 6))
+  }
+
+  test("bigIntToDigitSeq 123456") {
+    assertEquals(BigIntToDigitSeq(BigInt(123456)), Seq(1, 2, 3, 4, 5, 6))
+  }
+
   test("fact 3") {
     assertEquals(fact(3), BigInt(6))
   }
@@ -108,4 +116,8 @@ class EulerMathTest extends FunSuite :
 
   test("fibFrom 5 elems") {
     assertEquals(fibFrom().take(5), LazyList[BigInt](0, 1, 1, 2, 3))
+  }
+
+  test("powFrom 2 5-elem") {
+    assertEquals(powFrom(2).take(5), LazyList[BigInt](1, 2, 4, 8, 16))
   }

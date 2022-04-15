@@ -1,6 +1,7 @@
 package problems
 
 import scala.annotation.tailrec
+import utils.EulerMath._
 
 /*
   The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.
@@ -34,8 +35,7 @@ import scala.annotation.tailrec
 
 def largestProductInASeries(number: String, subLength: Int): Long =
 
-  def product(str: String): Long =
-    str.map(c => (c - 48).toLong).product
+  def product(str: String): Long = stringToDigitSeq(str).foldLeft(1L)(_ * _)
 
   @tailrec
   def loop(str: String, currentMax: Long): Long =

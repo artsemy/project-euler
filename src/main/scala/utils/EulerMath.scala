@@ -75,6 +75,12 @@ object EulerMath:
   def isAbundantNumber(n: Int): Boolean =
     compareNumberAndDividersSum(n, (x, y) => x < y)
     
+  def stringToDigitSeq(s: String): Seq[Int] = s.map(_ - 48)
+  
+  def BigIntToDigitSeq(n: BigInt): Seq[Int] = stringToDigitSeq(n.toString())
+    
   def fact(n: Int): BigInt = (1 to n).map(BigInt(_)).product
 
   def fibFrom(f1: BigInt = 0, f2: BigInt = 1): LazyList[BigInt] = f1 #:: fibFrom(f2, f1 + f2)
+  
+  def powFrom(n: Int, lastNumber: BigInt = BigInt(1)): LazyList[BigInt] = lastNumber #:: powFrom(n, lastNumber * n)
