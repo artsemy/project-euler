@@ -1,7 +1,6 @@
 package problems
 
 import munit.FunSuite
-import problems.P16_PowerDigitSum._
 
 class P16_PowerDigitSumTest extends FunSuite:
 

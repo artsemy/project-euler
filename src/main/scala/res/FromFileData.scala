@@ -3,29 +3,31 @@ package res
 import scala.io.Source
 
 object FromFileData:
-
-  def p08NumberFromFile: String =
-    val fileName = "src/main/resources/p08_1000_digit_number.txt"
-    val source = Source.fromFile(fileName)
-    val number = (for {
+  
+  def readLines(filePath: String): Seq[String] =
+    val source = Source.fromFile(filePath)
+    val seq = (for {
       line <- source.getLines()
     } yield line).toSeq
     source.close()
-    number.mkString
+    seq
+
+  def p08NumberFromFile: String =
+    val lines = readLines("src/main/resources/p08_1000_digit_number.txt")
+    lines.mkString
 
   def p11GridFromFile: List[List[Int]] =
-    val fileName = "src/main/resources/p11_grid.txt"
-    val source = Source.fromFile(fileName)
-    val grid = for {
-      line <- source.getLines().toList
-      seq = line.split(" ").map(_.toInt).toList
-    } yield seq
-    source.close()
-    grid
+    val lines = readLines("src/main/resources/p11_grid.txt")
+    lines.map(l => l.split(" ").map(_.toInt).toList).toList
+    
+  def p13LongNumbers: List[String] =
+    val lines = readLines("src/main/resources/p13_50digits_numbers.txt")
+    lines.toList
+    
+  def p18Triangle: List[List[Int]] =
+    val lines = readLines("src/main/resources/p18_triangle.txt")
+    lines.map(l => l.split(" ").map(_.toInt).toList).toList
 
   def p22NamesFromFile: Seq[String] =
-    val fileName = "src/main/resources/p22_names.txt"
-    val source = Source.fromFile(fileName)
-    val names = source.getLines().next().split(",").map(s => s.tail.init)
-    source.close()
-    names.toSeq
+    val lines = readLines("src/main/resources/p22_names.txt")
+    lines.head.split(",").toSeq.map(s => s.tail.init)

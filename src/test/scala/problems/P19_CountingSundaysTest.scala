@@ -1,7 +1,6 @@
 package problems
 
 import munit.FunSuite
-import problems.P19_CountingSundays._
 
 class P19_CountingSundaysTest extends FunSuite :
 

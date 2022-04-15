@@ -12,7 +12,7 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=20
 */
 
-object P20_FactorialDigitSum:
+def factorDigitSum(n: Int): Int =
 
   @tailrec
   def multiplyDigitSeq(i: Int, input: Seq[Int], add: Int = 0, acc: Seq[Int] = Seq()): Seq[Int] =
@@ -31,6 +31,4 @@ object P20_FactorialDigitSum:
       val multiAcc = multiplyDigitSeq(i, acc)
       factDigitSeq(n, i + 1, multiAcc)
 
-  def factorDigitSum(n: Int): Int =
-    val multi = factDigitSeq(n)
-    multi.sum
+  factDigitSeq(n).sum

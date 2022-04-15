@@ -18,41 +18,39 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=19
 */
 
-object P19_CountingSundays:
+def countSunday(century: Int): Int =
 
-  def countSunday(century: Int): Int =
+  def janSeq: Seq[Int] = 1 to 31
 
-    def janSeq: Seq[Int] = 1 to 31
+  def febSeq(year: Int): Seq[Int] =
+    if year % 4 == 0 && year % 100 != 0 || year % 400 == 0 then
+      1 to 29
+    else
+      1 to 28
 
-    def febSeq(year: Int): Seq[Int] =
-      if year % 4 == 0 && year % 100 != 0 || year % 400 == 0 then
-        1 to 29
-      else
-        1 to 28
+  def marToDecSeq: Seq[Int] =
+    (1 to 31) ++ (1 to 30) ++ (1 to 31) ++ (1 to 30) ++ (1 to 31) ++
+      (1 to 31) ++ (1 to 30) ++ (1 to 31) ++ (1 to 30) ++ (1 to 31)
 
-    def marToDecSeq: Seq[Int] =
-      (1 to 31) ++ (1 to 30) ++ (1 to 31) ++ (1 to 30) ++ (1 to 31) ++
-        (1 to 31) ++ (1 to 30) ++ (1 to 31) ++ (1 to 30) ++ (1 to 31)
+  def yearDatesSeq(year: Int): Seq[Int] =
+    janSeq ++ febSeq(year) ++ marToDecSeq
 
-    def yearDatesSeq(year: Int): Seq[Int] =
-      janSeq ++ febSeq(year) ++ marToDecSeq
+  def shiftLength(prev: Int): Int =
+    Math.floorMod(prev - 2, 7)
 
-    def shiftLength(prev: Int): Int =
-      Math.floorMod(prev - 2, 7)
+  def sundaysNumber(prev: Int, s: Seq[Int]): Int =
+    (shiftLength(prev) until s.length by 7).count(x => s(x) == 1)
 
-    def sundaysNumber(prev: Int, s: Seq[Int]): Int =
-      (shiftLength(prev) until s.length by 7).count(x => s(x) == 1)
+  @tailrec
+  def loop(prev: Int, year: Int, res: Int): Int =
+    val allDates = yearDatesSeq(year)
+    val nextYearPrev = (allDates.length % 7 + prev) % 7
+    if year < ((century - 1) * 100 + 1) then
+      loop(nextYearPrev, year + 1, res)
+    else if year < (century * 100 + 1) then
+      val sund = sundaysNumber(prev, allDates)
+      loop(nextYearPrev, year + 1, res + sund)
+    else
+      res
 
-    @tailrec
-    def loop(prev: Int, year: Int, res: Int): Int =
-      val allDates = yearDatesSeq(year)
-      val nextYearPrev = (allDates.length % 7 + prev) % 7
-      if year < ((century - 1) * 100 + 1) then
-        loop(nextYearPrev, year + 1, res)
-      else if year < (century * 100 + 1) then
-        val sund = sundaysNumber(prev, allDates)
-        loop(nextYearPrev, year + 1, res + sund)
-      else
-        res
-
-    loop(5, 1900, 0)
+  loop(5, 1900, 0)

@@ -10,32 +10,30 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=16
 */
 
-object P16_PowerDigitSum:
+def pDigitSum(number: Int, deg: Int): Int =
 
-  def pDigitSum(number: Int, deg: Int): Int =
+  val digitsList = number.toString.map(_ - 48).reverse
 
-    val digitsList = number.toString.map(_ - 48).reverse
-
-    @tailrec
-    def multiply(digitsList: Seq[Int], res: Seq[Int], add: Int = 0): Seq[Int] =
-      if digitsList.isEmpty then
-        if add == 0 then
-          res
-        else
-          res :+ add
+  @tailrec
+  def multiply(digitsList: Seq[Int], res: Seq[Int], add: Int = 0): Seq[Int] =
+    if digitsList.isEmpty then
+      if add == 0 then
+        res
       else
-        val m = digitsList.head * number + add
-        multiply(digitsList.tail, res :+ (m % 10), m / 10)
-
-    @tailrec
-    def loop(digitsList: Seq[Int], n: Int): Int =
-      if n == 1 then
-        digitsList.sum
-      else
-        val newDigitsList = multiply(digitsList, Nil)
-        loop(newDigitsList, n - 1)
-
-    if deg == 0 then 
-      1
+        res :+ add
     else
-      loop(digitsList, deg)
+      val m = digitsList.head * number + add
+      multiply(digitsList.tail, res :+ (m % 10), m / 10)
+
+  @tailrec
+  def loop(acc: Seq[Int], n: Int): Seq[Int] =
+    if n == 1 then
+      acc
+    else
+      val newDigitsList = multiply(acc, Nil)
+      loop(newDigitsList, n - 1)
+
+  if deg == 0 then 
+    1
+  else
+    loop(digitsList, deg).sum

@@ -31,7 +31,8 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=18
 */
 
-object P18_MaximumPathSum1:
+@tailrec
+def maxPathSum1(matr: List[List[Int]]): Int =
 
   def generateMaxOfPairList(list: List[Int]): List[Int] =
     for {
@@ -39,12 +40,10 @@ object P18_MaximumPathSum1:
       elem = list(i) max list(i + 1)
     } yield elem
 
-  @tailrec
-  def maxPath(matr: List[List[Int]]): Int =
-    if matr.length == 1 then
-      matr.head.head
-    else
-      val l1 = generateMaxOfPairList(matr.head)
-      val matrTail = matr.tail
-      val matrHead = matrTail.head.zip(l1).map { case (i1, i2) => i1 + i2 }
-      maxPath(matrHead :: matrTail.tail)
+  if matr.length == 1 then
+    matr.head.head
+  else
+    val l1 = generateMaxOfPairList(matr.head)
+    val matrTail = matr.tail
+    val matrHead = matrTail.head.zip(l1).map((i1, i2) => i1 + i2)
+    maxPathSum1(matrHead :: matrTail.tail)

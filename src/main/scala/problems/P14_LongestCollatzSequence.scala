@@ -16,17 +16,16 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=14
 */
 
-object P14_LongestCollatzSequence:
+def longestCollatzSeq(max: Int): Int =
 
-  def longest(max: Int): Int =
+  @tailrec
+  def collatzSeqLength(elem: Long, index: Int = 0): Int =
+    if elem == 1 then
+      index
+    else if elem % 2 == 0 then
+      collatzSeqLength(elem / 2, index + 1)
+    else
+      collatzSeqLength(elem * 3 + 1, index + 1)
 
-    @tailrec
-    def next(i: Long, j: Int = 0): Int =
-      if i == 1 then
-        j
-      else if i % 2 == 0 then
-        next(i / 2, j + 1)
-      else next(i * 3 + 1, j + 1)
-
-    val (maxVal, count) = (1 to max).map(x => x -> next(x)).maxBy(_._2)
-    maxVal
+  val (maxVal, count) = (1 until max).map(x => x -> collatzSeqLength(x)).maxBy(_._2)
+  maxVal

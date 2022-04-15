@@ -25,7 +25,7 @@ object P24_LexicographicPermutations:
       if digits.size == 1 then
         acc :+ digits.head
       else
-        val div = fact(digits.length - 1)
+        val div = fact(digits.length - 1).toInt //fix
         val i = reminder / div
         val rem = reminder % div
         loop(digits.filterNot(_ == digits(i)), rem, acc :+ digits(i))

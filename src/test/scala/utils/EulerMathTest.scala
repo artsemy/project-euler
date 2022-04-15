@@ -99,11 +99,11 @@ class EulerMathTest extends FunSuite :
   }
 
   test("fact 3") {
-    assertEquals(fact(3), 6)
+    assertEquals(fact(3), BigDecimal(6))
   }
 
   test("fact 10") {
-    assertEquals(fact(10), 3628800)
+    assertEquals(fact(10), BigDecimal(3628800))
   }
 
   test("fibFrom 5 elems") {
