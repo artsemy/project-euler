@@ -57,7 +57,7 @@ class EulerMathTest extends FunSuite :
     assertEquals(getPrimeDividersSeq(24), Seq(2L, 2L, 2L, 3L))
   }
 
-  test("all combinations (1, 2, 3)") {
+  test("all combinations (1, 2, 3) SORTED") {
     assertEquals(getAllCombinations(Seq(1, 2, 3)),
       Seq(Seq(), Seq(1), Seq(2), Seq(3), Seq(1, 2), Seq(1, 3), Seq(2, 3), Seq(1, 2, 3)))
   }
@@ -99,13 +99,13 @@ class EulerMathTest extends FunSuite :
   }
 
   test("fact 3") {
-    assertEquals(fact(3), BigDecimal(6))
+    assertEquals(fact(3), BigInt(6))
   }
 
   test("fact 10") {
-    assertEquals(fact(10), BigDecimal(3628800))
+    assertEquals(fact(10), BigInt(3628800))
   }
 
   test("fibFrom 5 elems") {
-    assertEquals(fibFrom().take(5), LazyList[BigDecimal](0, 1, 1, 2, 3))
+    assertEquals(fibFrom().take(5), LazyList[BigInt](0, 1, 1, 2, 3))
   }

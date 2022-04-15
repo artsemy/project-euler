@@ -14,16 +14,14 @@ import utils.EulerMath._
   https://projecteuler.net/problem=21
 */
 
-object P21_AmicableNumbers:
+def isAmicableNumber(n: Int): Boolean =
+  val dividers: Seq[Int] = getAllDividers(n).map(_.toInt) //type
+  val pairNumber = dividers.init.sum
+  val pairNumberDividers: Seq[Int] = getAllDividers(pairNumber).map(_.toInt) //type
+  dividers.sum == n + pairNumber && pairNumberDividers.sum == n + pairNumber && n != pairNumber
 
-  def isAmicableNumber(n: Int): Boolean =
-    val dividers: Seq[Int] = getAllDividers(n).map(_.toInt) //type
-    val pairNumber = dividers.init.sum
-    val pairNumberDividers: Seq[Int] = getAllDividers(pairNumber).map(_.toInt) //type
-    dividers.sum == n + pairNumber && pairNumberDividers.sum == n + pairNumber && n != pairNumber
+def amicableNumbersSeq(upperBound: Int): Seq[Int] =
+  (1 until upperBound).filter(isAmicableNumber)
 
-  def amicableNumbersSeq(upperBound: Int): Seq[Int] =
-    (1 until upperBound).filter(isAmicableNumber)
-
-  def amicableNumbersSum(upperBound: Int): Int =
-    amicableNumbersSeq(upperBound).sum
+def amicableNumbersSum(upperBound: Int): Int =
+  amicableNumbersSeq(upperBound).sum

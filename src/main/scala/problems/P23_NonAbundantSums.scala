@@ -21,24 +21,25 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=23
 */
 
-object P23_NonAbundantSums:
+def abundantSeq(upperBorder: Int): Seq[Int] =
+  (1 to upperBorder).filter(isAbundantNumber)
 
-  def abundantSeq(upperBorder: Int): Seq[Int] =
-    (1 to upperBorder).filter(isAbundantNumber)
+def twoAbundantSumSeq(upperBorder: Int): Set[Int] =
+  val abundant = abundantSeq(upperBorder)
 
-  def twoAbundantSumNumbers(upperBorder: Int): Set[Int] =
-    val abundant = abundantSeq(upperBorder)
+  @tailrec
+  def loop(init: Seq[Int], res: Set[Int]): Set[Int] =
+    if init.isEmpty then
+      res
+    else
+      val h = init.head
+      loop(init.tail, res ++ init.takeWhile(_ + h <= upperBorder).map(_ + h))
 
-    @tailrec
-    def loop(init: Seq[Int], res: Set[Int]): Set[Int] =
-      if init.isEmpty then
-        res
-      else
-        val h = init.head
-        loop(init.tail, res ++ init.takeWhile(_ + h <= upperBorder).map(_ + h))
+  loop(abundant, Set())
 
-    loop(abundant, Set())
+def nonTwoAbundantSumSeq(upperBorder: Int): Set[Int] =
+  val s = twoAbundantSumSeq(upperBorder)
+  (1 to upperBorder).toSet.diff(s)
 
-  def nonAbundantSum(upperBorder: Int): Int =
-    val s = twoAbundantSumNumbers(upperBorder)
-    (1 to upperBorder).toSet.diff(s).sum
+def nonAbundantSeqSum(upperBorder: Int): Int =
+  nonTwoAbundantSumSeq(upperBorder).sum

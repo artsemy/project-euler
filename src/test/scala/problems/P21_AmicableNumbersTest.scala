@@ -1,7 +1,6 @@
 package problems
 
 import munit.FunSuite
-import problems.P21_AmicableNumbers._
 
 class P21_AmicableNumbersTest extends FunSuite:
 

@@ -1,7 +1,6 @@
 package problems
 
 import munit.FunSuite
-import problems.P23_NonAbundantSums._
 
 class P23_NonAbundantSumsTest extends FunSuite :
 
@@ -14,21 +13,29 @@ class P23_NonAbundantSumsTest extends FunSuite :
   }
 
   test("twoAbundantSumSeq 23") {
-    assertEquals(twoAbundantSumNumbers(23), Set())
+    assertEquals(twoAbundantSumSeq(23), Set())
   }
 
   test("twoAbundantSumSeq 24") {
-    assertEquals(twoAbundantSumNumbers(24), Set(24))
+    assertEquals(twoAbundantSumSeq(24), Set(24))
+  }
+
+  test("nonTwoAbundantSumSeq 23") {
+    assertEquals(nonTwoAbundantSumSeq(23), (1 to 23).toSet)
+  }
+
+  test("nonTwoAbundantSumSeq 24") {
+    assertEquals(nonTwoAbundantSumSeq(24), (1 to 23).toSet)
   }
 
   test("nonAbundantSum 10") {
-    assertEquals(nonAbundantSum(10), 55)
+    assertEquals(nonAbundantSeqSum(10), 55)
   }
 
   test("nonAbundantSum 24") {
-    assertEquals(nonAbundantSum(24), 276)
+    assertEquals(nonAbundantSeqSum(24), 276)
   }
 
   test("nonAbundantSum 28123") {
-    assertEquals(nonAbundantSum(28123), 4179871)
+    assertEquals(nonAbundantSeqSum(28123), 4179871)
   }

@@ -75,6 +75,6 @@ object EulerMath:
   def isAbundantNumber(n: Int): Boolean =
     compareNumberAndDividersSum(n, (x, y) => x < y)
     
-  def fact(n: Int): BigDecimal = (1 to n).map(BigDecimal(_)).product
+  def fact(n: Int): BigInt = (1 to n).map(BigInt(_)).product
 
-  def fibFrom(f1: BigDecimal = 0, f2: BigDecimal = 1): LazyList[BigDecimal] = f1 #:: fibFrom(f2, f1 + f2)
+  def fibFrom(f1: BigInt = 0, f2: BigInt = 1): LazyList[BigInt] = f1 #:: fibFrom(f2, f1 + f2)

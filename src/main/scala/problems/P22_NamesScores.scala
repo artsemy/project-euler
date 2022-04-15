@@ -13,11 +13,9 @@ package problems
   https://projecteuler.net/problem=22
 */
 
-object P22_NamesScores:
+def nameStringScore(s: String): Int =
+  s.map(c => c - 64).sum
 
-  def stringScore(s: String): Int =
-    s.map(c => c - 64).sum
-
-  def sortedStringsScoresSum(seq: Seq[String]): Int =
-    val sortedList = seq.sorted
-    sortedList.indices.map(i => (i + 1) * stringScore(sortedList(i))).sum
+def sortedNamesStringsScoresSum(seq: Seq[String]): Int =
+  val sortedList = seq.sorted
+  sortedList.indices.map(i => (i + 1) * nameStringScore(sortedList(i))).sum

@@ -1,7 +1,6 @@
 package problems
 
 import utils.EulerMath.*
-import scala.annotation.tailrec
 
 /*
   The Fibonacci sequence is defined by the recurrence relation:
@@ -26,16 +25,5 @@ import scala.annotation.tailrec
   https://projecteuler.net/problem=25
 */
 
-object P25_1000DigitFibonacciNumber:
-
-  def fibIndex(digitsNumber: Int): Int =
-    val compareNumber = s"1.0E+${digitsNumber - 1}"
-
-    @tailrec
-    def loop(list: LazyList[BigDecimal], index: Int): Int =
-      if list.head > BigDecimal(compareNumber) then
-        index
-      else
-        loop(list.tail, index + 1)
-
-    loop(fibFrom(), 0)
+def fibDigitLengthIndex(digitsAmount: Int): Int =
+  fibFrom().takeWhile(_.toString.length < digitsAmount).length
