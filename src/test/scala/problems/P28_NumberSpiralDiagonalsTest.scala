@@ -4,7 +4,11 @@ import munit.FunSuite
 
 class P28_NumberSpiralDiagonalsTest extends FunSuite:
 
-  test("numberSpiralDiagonals 5 ") {
+  test("numberSpiralDiagonals 1") {
+    assertEquals(numberSpiralDiagonals(1), 1)
+  }
+
+  test("numberSpiralDiagonals 5") {
     assertEquals(numberSpiralDiagonals(5), 101)
   }
 
