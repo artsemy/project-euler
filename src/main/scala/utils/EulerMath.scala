@@ -43,25 +43,16 @@ object EulerMath:
     else
       loop(n, 2, Seq())
 
-  //need sorting sorted
   def getAllCombinations(seq: Seq[Int]): Seq[Seq[Int]] =
-    def loop(initSeq: Seq[Int], acc: Seq[Int]): Seq[Seq[Int]] =
-      if initSeq.isEmpty then
-        Seq(acc)
-      else
-        loop(initSeq.init, acc) :++ loop(initSeq.init, initSeq.last +: acc)
+    (0 to seq.length).flatMap(l => seq.combinations(l))
 
-    loop(seq, Seq())
-
-
-  //need remove sorting
   def getAllDividers(n: Long): Seq[Long] =
     if n == 0 then
       Seq()
     else
       val primeDividers = getPrimeDividersSeq(n)
       val indexComb = getAllCombinations(primeDividers.indices)
-      indexComb.map(seq => seq.map(i => primeDividers(i)).product).distinct.sorted
+      indexComb.map(seq => seq.map(i => primeDividers(i)).product).distinct
 
   def compareNumberAndDividersSum(x: Int, f: (Int, Int) => Boolean): Boolean =
     f(x, getAllDividers(x).init.sum.toInt) //type
