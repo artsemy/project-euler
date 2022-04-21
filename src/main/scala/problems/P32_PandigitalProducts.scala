@@ -21,9 +21,9 @@ def isPandigital(a: Int, b: Int, c: Int): Boolean =
 
 def pandigitalProducts(): Int =
   val seq = for {
-    x <- (1 until 10000).toSet
-    y <- (1 until 10000 / x).toSet
+    x <- 2 until 100
+    y <- 100 until 10000 / x
     pr = x * y
     if isPandigital(x, y, pr)
   } yield pr
-  seq.sum
+  seq.distinct.sum
