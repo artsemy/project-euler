@@ -12,6 +12,10 @@ class P30_DigitFifthPowersTest extends FunSuite:
     assertEquals(digitsAmountBorder(5), 6)
   }
 
+  test("digitPowers 3") {
+    assertEquals(digitFifthPowers(3), 1301)
+  }
+
   test("digitPowers 4") {
     assertEquals(digitFifthPowers(4), 19316)
   }

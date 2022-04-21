@@ -7,14 +7,14 @@ package problems
   9474 = 9^4 + 4^4 + 7^4 + 4^4
   As 1 = 1^4 is not a sum it is not included.
   The sum of these numbers is 1634 + 8208 + 9474 = 19316.
-  
+
   Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
-  
+
   https://projecteuler.net/problem=30
 */
 
 def digitsAmountBorder(deg: Int): Int =
-  (9 * Math.pow(9, deg)).toString.length
+  (9 * Math.pow(9, deg).toInt).toString.length
 
 def digitFifthPowers(deg: Int): Int =
   val num = for {
@@ -27,7 +27,6 @@ def digitFifthPowers(deg: Int): Int =
     number = a * 100000 + b * 10000 + c * 1000 + d * 100 + e * 10 + f
     if number == Math.pow(a, deg) + Math.pow(b, deg) + Math.pow(c, deg) + Math.pow(d, deg) +
       Math.pow(e, deg) + Math.pow(f, deg)
-    _ = println(number)
   } yield number
 
   num.sum - 1
