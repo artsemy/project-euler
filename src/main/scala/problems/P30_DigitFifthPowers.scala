@@ -1,5 +1,7 @@
 package problems
 
+import utils.EulerMath._
+
 /*
   Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
   1634 = 1^4 + 6^4 + 3^4 + 4^4
@@ -12,9 +14,6 @@ package problems
 
   https://projecteuler.net/problem=30
 */
-
-def digitsAmountBorder(deg: Int): Int =
-  (9 * Math.pow(9, deg).toInt).toString.length
 
 def digitFifthPowers(deg: Int): Int =
   val num = for {
@@ -30,3 +29,26 @@ def digitFifthPowers(deg: Int): Int =
   } yield number
 
   num.sum - 1
+
+def digitFifthPowersV2(deg: Int): Int =
+  val digitsPow = (0 to 9).map(x => (x, Math.pow(x, deg).toInt))
+  val border = digitsAmountBorder(deg)
+
+  def loop(seq: Seq[(Int, Int)], maybe: Seq[(Int, Int)]): Set[Int] =
+    if seq.isEmpty || maybe.length > border then
+      Set()
+    else
+      loop(seq, maybe :+ seq.head) ++ loop(seq.tail, maybe) + checkDigitsPowersSum(maybe)
+
+  loop(digitsPow, Seq()).sum - 1
+
+def digitsAmountBorder(deg: Int): Int =
+  (9 * Math.pow(9, deg).toInt).toString.length
+
+def checkDigitsPowersSum(seq: Seq[(Int, Int)]): Int =
+  val sum: Int = seq.map((x, y) => y).sum
+  val digits: Seq[Int] = seq.map((x, y) => x)
+  if stringToDigitSeq(sum.toString).sorted == digits.sorted then
+    sum
+  else
+    0
