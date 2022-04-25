@@ -21,8 +21,16 @@ class EulerMathTest extends FunSuite :
     assertEquals(isPalindrome(12321), true)
   }
 
-  test("isPalindrome 1321") {
+  test("isPalindrome 1321 not") {
     assertEquals(isPalindrome(1321), false)
+  }
+
+  test("isPalindrome 12321") {
+    assertEquals(isPalindrome("12321"), true)
+  }
+
+  test("isPalindrome 1321 not") {
+    assertEquals(isPalindrome("1321"), false)
   }
 
   test("isEven 4") {

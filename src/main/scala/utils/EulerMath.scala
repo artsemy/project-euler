@@ -8,7 +8,10 @@ object EulerMath:
     (2 until n).forall(n % _ != 0)
 
   def isPalindrome(n: Int): Boolean =
-    n.toString.reverse == n.toString
+    isPalindrome(n.toString)
+    
+  def isPalindrome(s: String): Boolean =
+    s == s.reverse
 
   def isEven(n: Int): Boolean = n % 2 == 0
 
