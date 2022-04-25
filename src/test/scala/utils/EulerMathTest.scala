@@ -106,6 +106,10 @@ class EulerMathTest extends FunSuite :
     assertEquals(BigIntToDigitSeq(BigInt(123456)), Seq(1, 2, 3, 4, 5, 6))
   }
 
+  test("digitSeqToBigInt 123") {
+    assertEquals(digitSeqToBigInt(Seq(1, 2, 3)), BigInt(123))
+  }
+
   test("fact 3") {
     assertEquals(fact(3), BigInt(6))
   }
