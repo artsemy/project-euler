@@ -133,3 +133,11 @@ class EulerMathTest extends FunSuite :
   test("powFrom 2 5-elem") {
     assertEquals(powFrom(2).take(5), LazyList[BigInt](1, 2, 4, 8, 16))
   }
+
+  test("isPandigital 1,2,3,4,5,6,7,8,9") {
+    assertEquals(isPandigital(Seq(123, 456, 789), 9), true)
+  }
+
+  test("isPandigital 2,2,3,4,5,6,7,8,9 no") {
+    assertEquals(isPandigital(Seq(223, 456, 789), 9), false)
+  }

@@ -8,7 +8,7 @@ class P37_TruncatablePrimesTest extends FunSuite:
     assertEquals(truncatablePrimesSum(), 748317)
   }
 
-  test("isTruncatable 739397 no") {
+  test("isTruncatable 739397") {
     assertEquals(isFullTruncatable(739397), true)
   }
 

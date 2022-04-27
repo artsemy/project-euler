@@ -80,3 +80,7 @@ object EulerMath:
   def fibFrom(f1: BigInt = 0, f2: BigInt = 1): LazyList[BigInt] = f1 #:: fibFrom(f2, f1 + f2)
   
   def powFrom(n: Int, lastNumber: BigInt = BigInt(1)): LazyList[BigInt] = lastNumber #:: powFrom(n, lastNumber * n)
+
+  def isPandigital(seq: Seq[Int], upperBorder: Int): Boolean =
+    val digitSeq = seq.flatMap(x => stringToDigitSeq(x.toString))
+    digitSeq.length == upperBorder && digitSeq.toSet == (1 to upperBorder).toSet

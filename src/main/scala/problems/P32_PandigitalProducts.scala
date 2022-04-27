@@ -15,15 +15,11 @@ import utils.EulerMath._
   https://projecteuler.net/problem=32
 */
 
-def isPandigital(a: Int, b: Int, c: Int): Boolean =
-  val d1 = stringToDigitSeq(a.toString + b.toString + c.toString).toSet
-  d1 == (1 to 9).toSet
-
 def pandigitalProducts(): Int =
   val seq = for {
     x <- 2 until 100
     y <- 100 until 10000 / x
     pr = x * y
-    if isPandigital(x, y, pr)
+    if isPandigital(Seq(x, y, pr), 9)
   } yield pr
   seq.distinct.sum
