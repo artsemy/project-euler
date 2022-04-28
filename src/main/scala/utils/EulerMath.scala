@@ -73,7 +73,7 @@ object EulerMath:
   
   def BigIntToDigitSeq(n: BigInt): Seq[Int] = stringToDigitSeq(n.toString())
   
-  def digitSeqToBigInt(digits: Seq[Int]): BigInt = BigInt(digits.map(_.toString).mkString)
+  def digitSeqToBigInt(digits: Seq[Int]): BigInt = BigInt(digits.mkString)
     
   def fact(n: Int): BigInt = (1 to n).map(BigInt(_)).product
 
@@ -81,12 +81,12 @@ object EulerMath:
   
   def powFrom(n: Int, lastNumber: BigInt = BigInt(1)): LazyList[BigInt] = lastNumber #:: powFrom(n, lastNumber * n)
 
-  def isPandigital(numbersSeq: Seq[Int], upperBorder: Int): Boolean =
+  def isPandigital(numbersSeq: Seq[Int], upperBorder: Int, lowerBorder: Int = 1): Boolean =
     val digitSeq = numbersSeq.flatMap(x => stringToDigitSeq(x.toString))
-    digitSeq.length == upperBorder && digitSeq.toSet == (1 to upperBorder).toSet
+    digitSeq.length == upperBorder - lowerBorder + 1 && digitSeq.toSet == (lowerBorder to upperBorder).toSet
 
   def isTriangularNumber(number: Int): Boolean =
     val n = Math.sqrt(number * 2).toInt
     number == n * (n + 1) / 2
-  
+
   def wordValue(word: String): Int = word.map(_ - 64).sum

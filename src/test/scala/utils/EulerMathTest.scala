@@ -142,6 +142,10 @@ class EulerMathTest extends FunSuite :
     assertEquals(isPandigital(Seq(223, 456, 789), 9), false)
   }
 
+  test("isPandigital 1,4,0,6,3,5,7,2,8,9 with 0") {
+    assertEquals(isPandigital(Seq(1,4,0,6,3,5,7,2,8,9), 9, 0), true)
+  }
+
   test("isTriangularNumber 36") {
     assertEquals(isTriangularNumber(36), true)
   }
