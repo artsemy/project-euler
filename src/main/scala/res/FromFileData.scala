@@ -31,3 +31,7 @@ object FromFileData:
   def p22NamesFromFile: Seq[String] =
     val lines = readLines("src/main/resources/p22_names.txt")
     lines.head.split(",").toSeq.map(s => s.tail.init)
+    
+  def p42Words: Seq[String] =
+    val lines = readLines("src/main/resources/p42_words.txt")
+    lines.head.split(",").toSeq.map(s => s.tail.init)

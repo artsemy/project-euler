@@ -1,5 +1,7 @@
 package problems
 
+import utils.EulerMath._
+
 /*
   Using p22_names.txt (right click and 'Save Link/Target As...'), a 46K text file containing over five-thousand first names,
   begin by sorting it into alphabetical order. Then working out the alphabetical value for each name,
@@ -13,9 +15,6 @@ package problems
   https://projecteuler.net/problem=22
 */
 
-def nameStringScore(s: String): Int =
-  s.map(c => c - 64).sum
-
 def sortedNamesStringsScoresSum(seq: Seq[String]): Int =
   val sortedList = seq.sorted
-  sortedList.indices.map(i => (i + 1) * nameStringScore(sortedList(i))).sum
+  sortedList.indices.map(i => (i + 1) * wordValue(sortedList(i))).sum

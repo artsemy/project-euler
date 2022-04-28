@@ -141,3 +141,23 @@ class EulerMathTest extends FunSuite :
   test("isPandigital 2,2,3,4,5,6,7,8,9 no") {
     assertEquals(isPandigital(Seq(223, 456, 789), 9), false)
   }
+
+  test("isTriangularNumber 36") {
+    assertEquals(isTriangularNumber(36), true)
+  }
+
+  test("isTriangularNumber 38 no") {
+    assertEquals(isTriangularNumber(38), false)
+  }
+
+  test("wordValue emptyString") {
+    assertEquals(wordValue(""), 0)
+  }
+
+  test("wordValue A") {
+    assertEquals(wordValue("A"), 1)
+  }
+
+  test("wordValue COLIN") {
+    assertEquals(wordValue("COLIN"), 53)
+  }

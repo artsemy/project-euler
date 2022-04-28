@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 object EulerMath:
 
   def isPrime(n: Int): Boolean =
-    (2 until Math.sqrt(n).ceil.toInt).forall(n % _ != 0) //fix until -> to
+    (2 to Math.sqrt(n).ceil.toInt).forall(n % _ != 0)
 
   def isPalindrome(n: Int): Boolean =
     isPalindrome(n.toString)
@@ -81,6 +81,12 @@ object EulerMath:
   
   def powFrom(n: Int, lastNumber: BigInt = BigInt(1)): LazyList[BigInt] = lastNumber #:: powFrom(n, lastNumber * n)
 
-  def isPandigital(seq: Seq[Int], upperBorder: Int): Boolean =
-    val digitSeq = seq.flatMap(x => stringToDigitSeq(x.toString))
+  def isPandigital(numbersSeq: Seq[Int], upperBorder: Int): Boolean =
+    val digitSeq = numbersSeq.flatMap(x => stringToDigitSeq(x.toString))
     digitSeq.length == upperBorder && digitSeq.toSet == (1 to upperBorder).toSet
+
+  def isTriangularNumber(number: Int): Boolean =
+    val n = Math.sqrt(number * 2).toInt
+    number == n * (n + 1) / 2
+  
+  def wordValue(word: String): Int = word.map(_ - 64).sum
