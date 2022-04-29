@@ -90,3 +90,7 @@ object EulerMath:
     number == n * (n + 1) / 2
 
   def wordValue(word: String): Int = word.map(_ - 64).sum
+  
+  def pentagonalFrom(n: Int = 1): LazyList[Int] = (n * (3 * n - 1) / 2) #:: pentagonalFrom(n + 1)
+
+  def isPentagonal(n: Int): Boolean = Math.sqrt(24 * n + 1) % 6 == 5

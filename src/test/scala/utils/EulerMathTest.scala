@@ -165,3 +165,15 @@ class EulerMathTest extends FunSuite :
   test("wordValue COLIN") {
     assertEquals(wordValue("COLIN"), 53)
   }
+
+  test("pentagonalFrom") {
+    assertEquals(pentagonalFrom().take(4), LazyList[Int](1, 5, 12, 22))
+  }
+
+  test("isPentagonal") {
+    assertEquals(isPentagonal(22), true)
+  }
+
+  test("isPentagonal no") {
+    assertEquals(isPentagonal(23), false)
+  }
