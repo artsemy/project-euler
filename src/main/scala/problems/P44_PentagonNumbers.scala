@@ -13,7 +13,7 @@ import utils.EulerMath._
   https://projecteuler.net/problem=44
 */
 
-def pentagonalNumbersPairDiff(): Int =
+def pentagonalNumbersPairDiff(): Long =
   val res = for {
     x <- pentagonalFrom().tail
     nextIndex = (Math.sqrt(24 * x + 1).toInt + 1) / 6 + 1

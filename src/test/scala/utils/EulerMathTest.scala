@@ -167,7 +167,7 @@ class EulerMathTest extends FunSuite :
   }
 
   test("pentagonalFrom") {
-    assertEquals(pentagonalFrom().take(4), LazyList[Int](1, 5, 12, 22))
+    assertEquals(pentagonalFrom().take(4), LazyList[Long](1L, 5L, 12L, 22L))
   }
 
   test("isPentagonal") {
@@ -176,4 +176,16 @@ class EulerMathTest extends FunSuite :
 
   test("isPentagonal no") {
     assertEquals(isPentagonal(23), false)
+  }
+
+  test("hexagonalFrom") {
+    assertEquals(hexagonalFrom().take(4), LazyList[Long](1L, 6L, 15L, 28L))
+  }
+
+  test("isHexagonal") {
+    assertEquals(isHexagonal(120), true)
+  }
+
+  test("isHexagonal no") {
+    assertEquals(isHexagonal(121), false)
   }
