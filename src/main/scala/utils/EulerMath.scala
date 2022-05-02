@@ -37,7 +37,7 @@ object EulerMath:
       if div == n then
         acc :+ div
       else if n % div == 0 then
-        loop(n / div, 2, acc :+ div)
+        loop(n / div, div, acc :+ div)
       else
         loop(n, div + 1, acc)
 
