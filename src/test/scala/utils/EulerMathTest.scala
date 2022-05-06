@@ -189,3 +189,19 @@ class EulerMathTest extends FunSuite :
   test("isHexagonal no") {
     assertEquals(isHexagonal(121), false)
   }
+
+  test("minNDigitNumber 1 - 1") {
+    assertEquals(minNDigitNumber(1), BigInt(1))
+  }
+
+  test("minNDigitNumber 3 - 100") {
+    assertEquals(minNDigitNumber(3), BigInt(100))
+  }
+  
+  test("maxNDigitNumber 1 - 9") {
+    assertEquals(maxNDigitNumber(1), BigInt(9))
+  }
+
+  test("maxNDigitNumber 3 - 999") {
+    assertEquals(maxNDigitNumber(3), BigInt(999))
+  }

@@ -12,24 +12,8 @@ import utils.EulerMath._
 */
 
 def findMultiple(border: Int): Int =
-
-  val primeList = getPrimes(border)
-
-  @tailrec
-  def loop(primeList: Seq[Int], acc: Int): Int =
-    if primeList.isEmpty then
-      acc
-    else
-      loop(primeList.tail, acc * maxPow(primeList.head, 1))
-
-  @tailrec
-  def maxPow(i: Int, acc: Int): Int =
-    if acc > border then
-      acc / i
-    else
-      maxPow(i, acc * i)
-
-  loop(primeList, 1)
+  getPrimes(border)
+    .foldLeft(BigInt(1))((acc, prime) => powFrom(prime).dropWhile(_ <= border).head / prime * acc).toInt
 
 def findMultipleV2(border: Int): Int =
   val initSeq = (border to 2 by -1).map(getPrimeDividersSeq(_))

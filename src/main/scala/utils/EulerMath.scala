@@ -7,8 +7,16 @@ object EulerMath:
   def isPrime(n: Int): Boolean =
     (2 to Math.sqrt(n).ceil.toInt).forall(n % _ != 0)
 
-  def isPalindrome(n: Int): Boolean =
-    isPalindrome(n.toString)
+  def isPalindrome(n: BigInt): Boolean =
+
+    @tailrec
+    def loop(n: BigInt, acc: BigInt): BigInt =
+      if n == 0 then
+        acc
+      else
+        loop(n / 10, acc * 10 + n % 10)
+
+    loop(n, 0) == n
     
   def isPalindrome(s: String): Boolean =
     s == s.reverse
@@ -98,3 +106,7 @@ object EulerMath:
   def hexagonalFrom(n: Long = 1): LazyList[Long] = (n * (2 * n - 1)) #:: hexagonalFrom(n + 1)
 
   def isHexagonal(n: Long): Boolean = Math.sqrt(8 * n + 1) % 4 == 3
+
+  def minNDigitNumber(digitNumber: Int): BigInt = maxNDigitNumber(digitNumber - 1) + 1
+
+  def maxNDigitNumber(digitNumber: Int): BigInt = powFrom(10)(digitNumber) - 1
