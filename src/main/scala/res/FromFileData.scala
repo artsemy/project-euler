@@ -35,3 +35,7 @@ object FromFileData:
   def p42Words: Seq[String] =
     val lines = readLines("src/main/resources/p42_words.txt")
     lines.head.split(",").toSeq.map(s => s.tail.init)
+
+  def p59Bytes: Seq[Int] =
+    val lines = readLines("src/main/resources/p59_cipher.txt")
+    lines.head.split(",").toIndexedSeq.map(_.toInt)
