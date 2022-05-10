@@ -205,3 +205,15 @@ class EulerMathTest extends FunSuite :
   test("maxNDigitNumber 3 - 999") {
     assertEquals(maxNDigitNumber(3), BigInt(999))
   }
+
+  test("numberLength 12345") {
+    assertEquals(numberLength(12345), 5)
+  }
+
+  test("numberLength 1") {
+    assertEquals(numberLength(1), 1)
+  }
+
+  test("concatNumbers 123 456") {
+    assertEquals(concatNumbers(123, 456), BigInt(123456))
+  }

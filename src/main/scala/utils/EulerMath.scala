@@ -110,3 +110,17 @@ object EulerMath:
   def minNDigitNumber(digitNumber: Int): BigInt = maxNDigitNumber(digitNumber - 1) + 1
 
   def maxNDigitNumber(digitNumber: Int): BigInt = powFrom(10)(digitNumber) - 1
+
+  def numberLength(n: BigInt): Int =
+    
+    @tailrec
+    def loop(n: BigInt, acc: Int): Int =
+      if n / 10 == 0 then
+        acc + 1
+      else
+        loop(n / 10, acc + 1)
+        
+    loop(n, 0)
+
+  def concatNumbers(x1: BigInt, x2: BigInt): BigInt =
+    x1 * powFrom(10)(numberLength(x2)) + x2
