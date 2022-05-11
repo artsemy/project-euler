@@ -217,3 +217,19 @@ class EulerMathTest extends FunSuite :
   test("concatNumbers 123 456") {
     assertEquals(concatNumbers(123, 456), BigInt(123456))
   }
+
+  test("triangularFrom") {
+    assertEquals(triangularFrom().take(3), LazyList[Long](1L, 3L, 6L))
+  }
+
+  test("squareFrom") {
+    assertEquals(squareFrom().take(3), LazyList[Long](1L, 4L, 9L))
+  }
+
+  test("heptagonalFrom") {
+    assertEquals(heptagonalFrom().take(3), LazyList[Long](1L, 7L, 18L))
+  }
+
+  test("octagonalFrom") {
+    assertEquals(octagonalFrom().take(3), LazyList[Long](1L, 8L, 21L))
+  }

@@ -124,3 +124,12 @@ object EulerMath:
 
   def concatNumbers(x1: BigInt, x2: BigInt): BigInt =
     x1 * powFrom(10)(numberLength(x2)) + x2
+
+  def triangularFrom(n: Long = 1): LazyList[Long] = (n * (n + 1) / 2) #:: triangularFrom(n + 1)
+
+  def squareFrom(n: Long = 1): LazyList[Long] = (n * n) #:: squareFrom(n + 1)
+
+  def heptagonalFrom(n: Long = 1): LazyList[Long] = (n * (5 * n - 3) / 2) #:: heptagonalFrom(n + 1)
+
+  def octagonalFrom(n: Long = 1): LazyList[Long] = (n * (3 * n - 2)) #:: octagonalFrom(n + 1)
+  
