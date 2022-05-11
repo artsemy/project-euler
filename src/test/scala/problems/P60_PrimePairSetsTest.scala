@@ -4,7 +4,7 @@ import munit.FunSuite
 
 class P60_PrimePairSetsTest extends FunSuite:
 
-  test("primePairSetSum 4") {
+  test("primePairSetSum 4".ignore) {
     assertEquals(primePairSetsSum(4), 792)
   }
 
