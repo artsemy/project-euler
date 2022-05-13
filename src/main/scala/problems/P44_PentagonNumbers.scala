@@ -16,11 +16,11 @@ import utils.EulerMath._
 def pentagonalNumbersPairDiff(): Long =
   val res = for {
     x <- pentagonalFrom().tail
-    nextIndex = (Math.sqrt(24 * x + 1).toInt + 1) / 6 + 1
+    nextIndex = (Math.sqrt(24 * x.toLong + 1).toInt + 1) / 6 + 1
     z <- pentagonalFrom(nextIndex).takeWhile(_ <= 2 * x)
     y = z - x
     k = x - y
-    if isPentagonal(y) && isPentagonal(k)
+    if isPentagonal(y.toLong) && isPentagonal(k.toLong)
   } yield x -> y
   val (x, y) = res.head
-  x - y
+  x.toLong - y.toLong

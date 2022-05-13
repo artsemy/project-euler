@@ -39,3 +39,7 @@ object FromFileData:
   def p59Bytes: Seq[Int] =
     val lines = readLines("src/main/resources/p59_cipher.txt")
     lines.head.split(",").toIndexedSeq.map(_.toInt)
+
+  def p67TriangleNumbers: List[List[Int]] =
+    val lines = readLines("src/main/resources/p67_triangle.txt")
+    lines.map(l => l.split(" ").map(_.toInt).toList).toList

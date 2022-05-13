@@ -15,4 +15,4 @@ import utils.EulerMath._
 */
 
 def triangularPentagonalHexagonalSecond(): Long =
-  pentagonalFrom().filter(isHexagonal).dropWhile(_ <= 40755L).head
+  pentagonalFrom().filter(x => isHexagonal(x.toLong)).dropWhile(_ <= 40755L).head.toLong

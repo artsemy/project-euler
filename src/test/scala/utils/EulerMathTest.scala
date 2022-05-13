@@ -167,7 +167,7 @@ class EulerMathTest extends FunSuite :
   }
 
   test("pentagonalFrom") {
-    assertEquals(pentagonalFrom().take(4), LazyList[Long](1L, 5L, 12L, 22L))
+    assertEquals(pentagonalFrom().take(4), LazyList[BigInt](1, 5, 12, 22))
   }
 
   test("isPentagonal") {
@@ -179,7 +179,7 @@ class EulerMathTest extends FunSuite :
   }
 
   test("hexagonalFrom") {
-    assertEquals(hexagonalFrom().take(4), LazyList[Long](1L, 6L, 15L, 28L))
+    assertEquals(hexagonalFrom().take(4), LazyList[BigInt](1, 6, 15, 28))
   }
 
   test("isHexagonal") {
@@ -219,17 +219,25 @@ class EulerMathTest extends FunSuite :
   }
 
   test("triangularFrom") {
-    assertEquals(triangularFrom().take(3), LazyList[Long](1L, 3L, 6L))
+    assertEquals(triangularFrom().take(3), LazyList[BigInt](1, 3, 6))
   }
 
   test("squareFrom") {
-    assertEquals(squareFrom().take(3), LazyList[Long](1L, 4L, 9L))
+    assertEquals(squareFrom().take(3), LazyList[BigInt](1, 4, 9))
+  }
+
+  test("squareFrom v2") {
+    assertEquals(squareFromV2().take(3), LazyList[BigInt](1, 4, 9))
+  }
+
+  test("squareFrom v3") {
+    assertEquals(squareFromV3().take(3), LazyList[BigInt](1, 4, 9))
   }
 
   test("heptagonalFrom") {
-    assertEquals(heptagonalFrom().take(3), LazyList[Long](1L, 7L, 18L))
+    assertEquals(heptagonalFrom().take(3), LazyList[BigInt](1, 7, 18))
   }
 
   test("octagonalFrom") {
-    assertEquals(octagonalFrom().take(3), LazyList[Long](1L, 8L, 21L))
+    assertEquals(octagonalFrom().take(3), LazyList[BigInt](1, 8, 21))
   }

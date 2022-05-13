@@ -99,11 +99,11 @@ object EulerMath:
 
   def wordValue(word: String): Int = word.map(_ - 64).sum
 
-  def pentagonalFrom(n: Long = 1): LazyList[Long] = (n * (3 * n - 1) / 2) #:: pentagonalFrom(n + 1)
+  def pentagonalFrom(n: BigInt = 1): LazyList[BigInt] = (n * (3 * n - 1) / 2) #:: pentagonalFrom(n + 1)
 
   def isPentagonal(n: Long): Boolean = Math.sqrt(24 * n + 1) % 6 == 5
 
-  def hexagonalFrom(n: Long = 1): LazyList[Long] = (n * (2 * n - 1)) #:: hexagonalFrom(n + 1)
+  def hexagonalFrom(n: BigInt = 1): LazyList[BigInt] = (n * (2 * n - 1)) #:: hexagonalFrom(n + 1)
 
   def isHexagonal(n: Long): Boolean = Math.sqrt(8 * n + 1) % 4 == 3
 
@@ -125,11 +125,16 @@ object EulerMath:
   def concatNumbers(x1: BigInt, x2: BigInt): BigInt =
     x1 * powFrom(10)(numberLength(x2)) + x2
 
-  def triangularFrom(n: Long = 1): LazyList[Long] = (n * (n + 1) / 2) #:: triangularFrom(n + 1)
+  def triangularFrom(n: BigInt = 1): LazyList[BigInt] = (n * (n + 1) / 2) #:: triangularFrom(n + 1)
 
-  def squareFrom(n: Long = 1): LazyList[Long] = (n * n) #:: squareFrom(n + 1)
+  def squareFrom(n: BigInt = 1): LazyList[BigInt] = (n * n) #:: squareFrom(n + 1)
 
-  def heptagonalFrom(n: Long = 1): LazyList[Long] = (n * (5 * n - 3) / 2) #:: heptagonalFrom(n + 1)
+  def squareFromV2(n: BigInt = 2, square: BigInt = 1): LazyList[BigInt] =
+    square #:: squareFromV2(n + 1, square + n + n - 1)
+    
+  def squareFromV3(n: BigInt = 1, last: BigInt = 3): LazyList[BigInt] = n #:: squareFromV3(n + last, last + 2)
 
-  def octagonalFrom(n: Long = 1): LazyList[Long] = (n * (3 * n - 2)) #:: octagonalFrom(n + 1)
+  def heptagonalFrom(n: BigInt = 1): LazyList[BigInt] = (n * (5 * n - 3) / 2) #:: heptagonalFrom(n + 1)
+
+  def octagonalFrom(n: BigInt = 1): LazyList[BigInt] = (n * (3 * n - 2)) #:: octagonalFrom(n + 1)
   
