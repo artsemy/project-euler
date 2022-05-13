@@ -15,5 +15,5 @@ package problems
   https://projecteuler.net/problem=67
 */
 
-def maximumPathSum2(matr: List[List[Int]]): Int =
+def maxPathSum2(matr: List[List[Int]]): Int =
   maxPathSum1(matr)

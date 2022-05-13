@@ -8,5 +8,5 @@ class P67_MaximumPathSum2Test extends FunSuite:
   val matr: List[List[Int]] = p67TriangleNumbers.reverse
 
   test("maximumPathSum2") {
-    assertEquals(maximumPathSum2(matr), 7273)
+    assertEquals(maxPathSum2(matr), 7273)
   }
