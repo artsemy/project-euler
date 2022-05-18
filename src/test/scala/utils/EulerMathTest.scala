@@ -241,3 +241,15 @@ class EulerMathTest extends FunSuite :
   test("octagonalFrom") {
     assertEquals(octagonalFrom().take(3), LazyList[BigInt](1, 8, 21))
   }
+
+  test("gcd 5, 7") {
+    assertEquals(gcd(5, 7), BigInt(1))
+  }
+
+  test("gcd 7, 5") {
+    assertEquals(gcd(7, 5), BigInt(1))
+  }
+
+  test("gcd 2, 4") {
+    assertEquals(gcd(2, 4), BigInt(2))
+  }

@@ -137,4 +137,10 @@ object EulerMath:
   def heptagonalFrom(n: BigInt = 1): LazyList[BigInt] = (n * (5 * n - 3) / 2) #:: heptagonalFrom(n + 1)
 
   def octagonalFrom(n: BigInt = 1): LazyList[BigInt] = (n * (3 * n - 2)) #:: octagonalFrom(n + 1)
-  
+
+  @tailrec
+  def gcd(x1: BigInt, x2: BigInt): BigInt =
+    if x1 % x2 == 0 then
+      x2
+    else
+      gcd(x2, x1 % x2)

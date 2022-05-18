@@ -16,7 +16,8 @@ import scala.annotation.tailrec
 */
 
 def countingFractions(border: Int): BigInt =
-  (2 to border).map(x => fi(x, getPrimes(border).toSet)).sum
+  val pr = getPrimes(border).toSet
+  (2 to border).map(x => fi(x, pr)).sum
 
 def fi(n: Int, primes: Set[Int]): BigInt =
   if primes.contains(n) then
