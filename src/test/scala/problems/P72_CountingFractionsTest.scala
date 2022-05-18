@@ -19,3 +19,7 @@ class P72_CountingFractionsTest extends FunSuite:
   test("fi 8") {
     assertEquals(fi(8, Set(2, 3, 5, 7)), BigInt(4))
   }
+
+  test("counting fractions 1000000 v2") { // too slow -> 3,5 min
+    assertEquals(countingFractions(10), BigInt("303963552391"))
+  }

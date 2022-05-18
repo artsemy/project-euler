@@ -25,3 +25,14 @@ def fi(n: Int, primes: Set[Int]): BigInt =
   else
     val seq = getPrimeDividersSeq(n).distinct
     n * seq.map(_ - 1).product / seq.product
+
+def countingFractionsV2(border: Int): BigInt =
+  var counter: BigInt = 0
+  val p = for {
+    x <- 1 until border
+    y <- (x + 1) to border
+    if gcd(x, y) == 1
+    _ = counter += 1
+  } yield ()
+  counter
+  
