@@ -14,7 +14,7 @@ import utils.EulerMath._
 
 def cubicPermutationsMin(size: Int): BigInt =
   val cubes = (1 to 10000).map(powFrom(_)(3))
-  val grouped = cubes.map(BigIntToDigitSeq).groupBy(_.sorted)
+  val grouped = cubes.map(bigIntToDigitSeq).groupBy(_.sorted)
   grouped
     .filter{ case (key, vec) => vec.size == size }
     .flatMap{ case (key, vec) => vec }

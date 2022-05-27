@@ -12,4 +12,4 @@ import utils.EulerMath._
   https://projecteuler.net/problem=20
 */
 
-def factorDigitSum(n: Int): Int = BigIntToDigitSeq(fact(n)).sum
+def factorDigitSum(n: Int): Int = bigIntToDigitSeq(fact(n)).sum

@@ -23,5 +23,5 @@ def concealedSquare(): BigInt =
   loop(BigInt("1111111111"))
 
 def isMasked(i:  BigInt): Boolean =
-  val seq = BigIntToDigitSeq(i)
+  val seq = bigIntToDigitSeq(i)
   seq.length == 19 && seq.last == 0 && (1 to 8).forall(x => seq(2 * x) == x + 1) && seq.head == 1

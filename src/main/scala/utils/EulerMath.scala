@@ -79,7 +79,7 @@ object EulerMath:
     
   def stringToDigitSeq(s: String): Seq[Int] = s.map(_ - 48)
   
-  def BigIntToDigitSeq(n: BigInt): Seq[Int] = stringToDigitSeq(n.toString())
+  def bigIntToDigitSeq(n: BigInt): Seq[Int] = stringToDigitSeq(n.toString())
   
   def digitSeqToBigInt(digits: Seq[Int]): BigInt = BigInt(digits.mkString)
     

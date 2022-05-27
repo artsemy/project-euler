@@ -12,4 +12,4 @@ import utils.EulerMath._
 */
 
 def pDigitSum(number: Int, deg: Int): Int =
-  BigIntToDigitSeq(powFrom(number)(deg)).sum
+  bigIntToDigitSeq(powFrom(number)(deg)).sum

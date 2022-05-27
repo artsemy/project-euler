@@ -17,5 +17,5 @@ def powerfulDigitSum(): Int =
     a <- 1 until 100
     b <- 1 until 100
     x = powFrom(a)(b)
-  } yield BigIntToDigitSeq(x).sum
+  } yield bigIntToDigitSeq(x).sum
   res.max

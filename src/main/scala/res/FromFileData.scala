@@ -43,3 +43,7 @@ object FromFileData:
   def p67TriangleNumbers: List[List[Int]] =
     val lines = readLines("src/main/resources/p67_triangle.txt")
     lines.map(l => l.split(" ").map(_.toInt).toList).toList
+    
+  def p79KeyLog: Seq[Int] =
+    val lines = readLines("src/main/resources/p79_keylog.txt")
+    lines.map(_.toInt)

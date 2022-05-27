@@ -24,4 +24,4 @@ def convergentsOfE(): LazyList[(BigInt, BigInt)] =
 
 def sumOfDigitsNumeratorOfConvergentOfE(index: Int): Int =
   val (num, den) = convergentsOfE()(index)
-  BigIntToDigitSeq(num).sum
+  bigIntToDigitSeq(num).sum

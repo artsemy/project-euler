@@ -42,4 +42,4 @@ def generateFactorialChain(n: BigInt): Seq[BigInt] =
   loop(n, Seq(n))
 
 def generateFactorialChainElement(n: BigInt): BigInt =
-  BigIntToDigitSeq(n).map(x => fact(x)).sum
+  bigIntToDigitSeq(n).map(x => fact(x)).sum
