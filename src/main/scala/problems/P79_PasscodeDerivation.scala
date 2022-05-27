@@ -17,10 +17,10 @@ import scala.annotation.tailrec
 
 def passcodeDerivation(seq: Seq[Int]): String =
 
-  val attemptsThreeDigits = seq.map(x => bigIntToDigitSeq(BigInt(x)))
+  val attemptsThreeDigits = seq.map(x => bigIntToDigitSeq(x))
 
   def allDigits: Seq[Int] =
-    seq.flatMap(x => bigIntToDigitSeq(BigInt(x))).distinct
+    seq.flatMap(x => bigIntToDigitSeq(x)).distinct
 
   def findComb: Seq[Int] =
     val pass = allDigits.toList.permutations.toSeq
