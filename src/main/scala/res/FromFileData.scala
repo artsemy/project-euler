@@ -47,3 +47,7 @@ object FromFileData:
   def p79KeyLog: Seq[Int] =
     val lines = readLines("src/main/resources/p79_keylog.txt")
     lines.map(_.toInt)
+
+  def p81Matrix: Seq[Seq[Int]] =
+    val lines = readLines("src/main/resources/p81_matrix.txt")
+    lines.map(_.split(",").map(_.toInt).toSeq)
