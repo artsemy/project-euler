@@ -22,18 +22,14 @@ def pathSumTwoWays(matr: Seq[Seq[Int]]): Int =
 
   for {
     i <- 1 until matrix.length
-    _ = matrix.head(i) += matrix.head(i - 1)
-  } yield ()
-
-  for {
-    j <- 1 until matrix.length
-    _ = matrix(j)(0) += matrix(j - 1)(0)
+    _ = matrix(0)(i) += matrix(0)(i - 1)
+    _ = matrix(i)(0) += matrix(i - 1)(0)
   } yield ()
 
   for {
     i <- 1 until matrix.length
     j <- 1 until matrix.length
-    _ = matrix(i)(j) += (matrix(i-1)(j) min matrix(i)(j-1))
+    _ = matrix(i)(j) += (matrix(i - 1)(j) min matrix(i)(j - 1))
   } yield ()
 
   matrix.last.last
