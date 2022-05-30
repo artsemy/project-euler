@@ -51,3 +51,10 @@ object FromFileData:
   def p81Matrix: Seq[Seq[Int]] =
     val lines = readLines("src/main/resources/p81_matrix.txt")
     lines.map(_.split(",").map(_.toInt).toSeq)
+
+  def p99ExpPairs: Seq[(Int, Int)] =
+    val lines = readLines("src/main/resources/p99_base_exp.txt")
+    lines.map(s =>
+      val arr = s.split(",").map(_.toInt)
+      (arr.head, arr.last)
+    )
