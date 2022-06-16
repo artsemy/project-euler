@@ -3,4 +3,4 @@ package problems
 import scala.annotation.tailrec
 
 def countingSummations(n: Int): BigInt =
-  0
+  coinSums((n - 1) to 1 by -1, n)
