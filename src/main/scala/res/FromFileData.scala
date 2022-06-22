@@ -58,3 +58,7 @@ object FromFileData:
       val arr = s.split(",").map(_.toInt)
       (arr.head, arr.last)
     )
+
+  def p89Roman: Seq[String] =
+    val lines = readLines("src/main/resources/p89_roman.txt")
+    lines
