@@ -62,3 +62,11 @@ object FromFileData:
   def p89Roman: Seq[String] =
     val lines = readLines("src/main/resources/p89_roman.txt")
     lines
+
+  def p102Triangles: Seq[((Int, Int), (Int, Int), (Int, Int))] =
+    val lines = readLines("src/main/resources/p102_triangles.txt")
+    for {
+      line <- lines
+      dots = line.split(",")
+    } yield ((dots(0).toInt, dots(1).toInt), (dots(2).toInt, dots(3).toInt),
+      (dots(4).toInt, dots(5).toInt))
