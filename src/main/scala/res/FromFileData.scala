@@ -70,3 +70,7 @@ object FromFileData:
       dots = line.split(",")
     } yield ((dots(0).toInt, dots(1).toInt), (dots(2).toInt, dots(3).toInt),
       (dots(4).toInt, dots(5).toInt))
+    
+  def p54Poker: Seq[(String, String)] =
+    val lines = readLines("src/main/resources/p54_poker.txt")
+    lines.map(s => (s.take(14), s.drop(15)))
