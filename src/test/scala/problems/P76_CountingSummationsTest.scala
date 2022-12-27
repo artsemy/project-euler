@@ -8,6 +8,6 @@ class P76_CountingSummationsTest extends FunSuite:
     assertEquals(countingSummations(5), BigInt(6))
   }
 
-  test("counting summations 100") {
+  test("counting summations 100") { //13 sec
     assertEquals(countingSummations(100), BigInt(190569291))
   }
