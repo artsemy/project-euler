@@ -144,4 +144,3 @@ object EulerMath:
       x2
     else
       gcd(x2, x1 % x2)
-
